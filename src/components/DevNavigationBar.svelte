@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { ConfigUrls, CoreUrls, TypesUrls } from '../routes/DocUrls.js';
 	$: currentRoute = $page.route.id || '';
 </script>
 
@@ -13,16 +14,16 @@
 		<div class="collapse navbar-collapse" id="navbarsExample02">
 			<ul class="navbar-nav me-auto">
 				<li class="nav-item">
-					<a class="nav-link" class:active={currentRoute === '/'} href="/">Home</a>
+					<a class="nav-link" class:active={currentRoute === CoreUrls.Home} href={CoreUrls.Home}>Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" class:active={currentRoute === '/dev'} href="/dev">Dev</a>
+					<a class="nav-link" class:active={currentRoute === CoreUrls.Dev} href={CoreUrls.Dev}>Dev</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" class:active={currentRoute.startsWith('/config')} href="/config">Config</a>
+					<a class="nav-link" class:active={currentRoute.startsWith(ConfigUrls.Root)} href={ConfigUrls.Root}>Config</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" class:active={currentRoute.startsWith('/types')} href="/types">Types</a>
+					<a class="nav-link" class:active={currentRoute.startsWith(TypesUrls.Root)} href={TypesUrls.Root}>Types</a>
 				</li>
 			</ul>
 		</div>

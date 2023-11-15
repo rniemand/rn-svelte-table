@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { TypesUrls } from '../DocUrls.js';
 	$: url = $page.route.id || '/types';
 </script>
 
@@ -7,9 +8,9 @@
 
 <ul class="nav nav-tabs justify-content-center">
 	<li class="nav-item">
-		<a class="nav-link" class:active={url === '/types'} href="/types">Overview</a>
+		<a class="nav-link" class:active={url === TypesUrls.Root} href={TypesUrls.Root}>Overview</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" class:active={url === '/types/core'} href="/types/core">Core</a>
+		<a class="nav-link" class:active={url === TypesUrls.Core} href={TypesUrls.Core}>Core</a>
 	</li>
 </ul>
