@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	$: currentRoute = $page.route.id;
+	$: currentRoute = $page.route.id || '';
 </script>
 
 <nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
@@ -19,7 +19,7 @@
 					<a class="nav-link" class:active={currentRoute === '/dev'} href="/dev">Dev</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" class:active={currentRoute === '/config'} href="/config">Config</a>
+					<a class="nav-link" class:active={currentRoute.startsWith('/config')} href="/config">Config</a>
 				</li>
 			</ul>
 		</div>
