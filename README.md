@@ -2,6 +2,8 @@
 
 Holder
 
+Documentation can be found [here](https://www.richardn.ca/rn-svelte-table/#/).
+
 ## Development
 
 Holder
