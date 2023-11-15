@@ -1,3 +1,8 @@
+<script lang="ts">
+	import { page } from '$app/stores';
+	$: currentRoute = $page.route.id;
+</script>
+
 <nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="/">RnSvelteTable</a>
@@ -16,7 +21,10 @@
 		<div class="collapse navbar-collapse" id="navbarsExample02">
 			<ul class="navbar-nav me-auto">
 				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="/">Home</a>
+					<a class="nav-link" class:active={currentRoute === '/'} href="/">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" class:active={currentRoute === '/dev'} href="/dev">Dev</a>
 				</li>
 			</ul>
 		</div>
