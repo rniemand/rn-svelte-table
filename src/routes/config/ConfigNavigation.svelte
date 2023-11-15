@@ -1,16 +1,17 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	$: url = $page.route.id || '/config';
+	import { ConfigUrls } from '../DocUrls.js';
+	$: url = $page.route.id || ConfigUrls.Root;
 </script>
 
 <ul class="nav nav-tabs justify-content-center">
 	<li class="nav-item">
-		<a class="nav-link" class:active={url === '/config'} href="/config">Overview</a>
+		<a class="nav-link" class:active={url === ConfigUrls.Root} href={ConfigUrls.Root}>Overview</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" class:active={url === '/config/styling'} href="/config/styling">Styling</a>
+		<a class="nav-link" class:active={url === ConfigUrls.Styling} href={ConfigUrls.Styling}>Styling</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" class:active={url === '/config/builders'} href="/config/builders">Builders</a>
+		<a class="nav-link" class:active={url === ConfigUrls.Builders} href={ConfigUrls.Builders}>Builders</a>
 	</li>
 </ul>

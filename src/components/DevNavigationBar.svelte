@@ -21,6 +21,9 @@
 				<li class="nav-item">
 					<a class="nav-link" class:active={currentRoute.startsWith('/config')} href="/config">Config</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link" class:active={currentRoute.startsWith('/types')} href="/types">Types</a>
+				</li>
 			</ul>
 		</div>
 	</div>
