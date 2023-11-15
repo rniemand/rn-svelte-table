@@ -3,7 +3,6 @@
 	import { goto } from '$app/navigation';
 	import ConfigNavigation from '../ConfigNavigation.svelte';
 	import RnSvelteTableConfigBuilderDocs from './RnSvelteTableConfigBuilderDocs.svelte';
-	import AnotherOne from './AnotherOne.svelte';
 	import { ConfigUrls } from '../../DocUrls.js';
 
 	let tab: string = 'RnSvelteTableConfigBuilder';
@@ -15,5 +14,4 @@
 
 <div class="accordion">
 	<RnSvelteTableConfigBuilderDocs {tab} {setTab} />
-	<AnotherOne {tab} {setTab} />
 </div>

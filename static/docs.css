@@ -1,0 +1,10 @@
+code.sample {
+    border: 1px solid #6f6f6f;
+    display: block;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+code.sample:hover {
+    background-color: #1b1f23;
+}
