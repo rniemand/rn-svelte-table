@@ -1,6 +1,7 @@
 <script lang="ts">
 	import 'bootstrap/dist/css/bootstrap.min.css';
 	import DevNavigationBar from '../components/DevNavigationBar.svelte';
+	import '@popperjs/core';
 </script>
 
 <DevNavigationBar />

@@ -10,4 +10,7 @@
 	<li class="nav-item">
 		<a class="nav-link" class:active={url === '/config/styling'} href="/config/styling">Styling</a>
 	</li>
+	<li class="nav-item">
+		<a class="nav-link" class:active={url === '/config/builders'} href="/config/builders">Builders</a>
+	</li>
 </ul>
