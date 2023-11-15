@@ -1,6 +1,20 @@
 {
 	"name": "rn-svelte-table",
 	"version": "0.0.1",
+	"description": "A reusable Svelte table library",
+	"keywords": [
+		"components",
+		"Svelte",
+		"SvelteKit",
+		"table"
+	],
+	"homepage": "https://github.com/rniemand/rn-svelte-table",
+	"license": "MIT",
+	"author": {
+		"name": "Richard Niemand",
+		"url": "https://www.richardn.ca/"
+	},
+	"repository": "github:rniemand/rn-svelte-table",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
