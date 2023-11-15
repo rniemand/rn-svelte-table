@@ -6,15 +6,7 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="/">RnSvelteTable</a>
-		<button
-			class="navbar-toggler"
-			type="button"
-			data-bs-toggle="collapse"
-			data-bs-target="#navbarsExample02"
-			aria-controls="navbarsExample02"
-			aria-expanded="false"
-			aria-label="Toggle navigation"
-		>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
@@ -25,6 +17,9 @@
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" class:active={currentRoute === '/dev'} href="/dev">Dev</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" class:active={currentRoute === '/config'} href="/config">Config</a>
 				</li>
 			</ul>
 		</div>
