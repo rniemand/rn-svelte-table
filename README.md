@@ -11,6 +11,17 @@ npm run dev
 npm run dev -- --open
 ```
 
+### Documentation
+
+Holder
+
+```shell
+docsify serve docs
+```
+
+- Open browser [http://localhost:3000](http://localhost:3000)
+- [Grammar Files](https://cdn.jsdelivr.net/npm/prismjs@1/components/)
+
 ## Building
 
 To build your library:
