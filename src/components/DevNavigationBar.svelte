@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { ConfigUrls, CoreUrls, TypesUrls } from '../routes/DocUrls.js';
+	import { CoreUrls } from '../routes/DocUrls.js';
 	$: currentRoute = $page.route.id || '';
 </script>
 
@@ -18,12 +18,6 @@
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" class:active={currentRoute === CoreUrls.Dev} href={CoreUrls.Dev}>Dev</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" class:active={currentRoute.startsWith(ConfigUrls.Root)} href={ConfigUrls.Root}>Config</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" class:active={currentRoute.startsWith(TypesUrls.Root)} href={TypesUrls.Root}>Types</a>
 				</li>
 			</ul>
 		</div>

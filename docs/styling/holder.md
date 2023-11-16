@@ -1,9 +1,6 @@
-<script lang="ts">
-	import ConfigNavigation from '../ConfigNavigation.svelte';
-</script>
+# Styling
 
-<ConfigNavigation />
-
+```text
 <table class="table table-striped table-hover">
 	<thead>
 		<tr>
@@ -106,3 +103,4 @@
 		</tr>
 	</tbody>
 </table>
+```
