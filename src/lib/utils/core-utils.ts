@@ -1,6 +1,6 @@
-import { TableConfigBuilder } from "$lib/builders/_builders.js";
+import { TableConfigBuilder, TableHeaderBuilder } from "$lib/builders/_builders.js";
 import { TableDefaultConfig } from "$lib/config/_config.js";
-import type { TableConfig } from "$lib/types/_types.js";
+import type { TableConfig, TableHeader } from "$lib/types/_types.js";
 
 export function isTableConfig(value: any): value is TableConfig {
 	return (value as TableConfig).baseClass !== undefined;
@@ -13,6 +13,12 @@ export const compileTableConfig = (_config: any) => {
 	console.warn(`Unsupported table configuration provided - using defaults`);
 	return TableDefaultConfig;
 };
+
+export const compileTableHeader = (header: TableHeader | TableHeaderBuilder) => {
+	if(!header) throw new Error('Property "header" is required!');
+	if(header instanceof TableHeaderBuilder) return header.build();
+	return header;
+}
 
 export const generateTableClass = (_config: TableConfig) => {
 	const tblClasses: string[] = [_config.baseClass];

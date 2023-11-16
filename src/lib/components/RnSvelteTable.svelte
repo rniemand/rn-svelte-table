@@ -1,24 +1,20 @@
 <script lang="ts">
-	import type { TableConfigBuilder } from "$lib/builders/_builders.js";
+	import type { TableConfigBuilder, TableHeaderBuilder } from "$lib/builders/_builders.js";
 	import { TableDefaultConfig } from "$lib/config/_config.js";
-	import type { TableConfig } from "$lib/types/_types.js";
-	import { compileTableConfig, generateTableClass } from "$lib/utils/_utils.js";
+	import type { TableConfig, TableHeader } from "$lib/types/_types.js";
+	import { compileTableConfig, compileTableHeader, generateTableClass } from "$lib/utils/_utils.js";
+	import RnTableHeader from './RnTableHeader.svelte';
 
 	export let config: TableConfig | TableConfigBuilder | undefined | null = TableDefaultConfig;
+	export let header: TableHeader | TableHeaderBuilder;
 
 	$: builtConfig = compileTableConfig(config);
+	$: builtHeader = compileTableHeader(header);
 	$: tableClass = generateTableClass(builtConfig);
 </script>
 
 <div class:table-responsive={builtConfig.responsive === true} class={typeof builtConfig.responsive === 'string' ? builtConfig.responsive : ''}>
 	<table class={tableClass}>
-		<thead>
-			<tr>
-				<th>Column 1</th>
-				<th>Column 2</th>
-				<th>Column 3</th>
-				<th>Column 4</th>
-			</tr>
-		</thead>
+		<RnTableHeader header={builtHeader} />
 	</table>
 </div>
