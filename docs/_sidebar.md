@@ -1,2 +1,2 @@
 - [Builders](/builders/README.md)
-- [Config](./config/README.md)
+- [Configuration](./config/README.md)
