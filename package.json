@@ -1,6 +1,6 @@
 {
 	"name": "rn-svelte-table",
-	"version": "0.0.1001",
+	"version": "0.0.1002",
 	"description": "A reusable Svelte table library",
 	"keywords": [
 		"components",

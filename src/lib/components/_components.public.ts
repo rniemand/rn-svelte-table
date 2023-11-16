@@ -1,1 +1,3 @@
-export * from './RnSvelteTable.svelte';
+import RnSvelteTable from './RnSvelteTable.svelte';
+
+export { RnSvelteTable }
