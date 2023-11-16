@@ -1,8 +1,8 @@
-import { RnSvelteTableDefaultConfig } from "$lib/config/_config.js";
+import { TableDefaultConfig } from "$lib/config/_config.js";
 import type { TableConfig } from "$lib/types/_types.js";
 
 export class TableConfigBuilder {
-	private _config: TableConfig = { ...RnSvelteTableDefaultConfig };
+	private _config: TableConfig = { ...TableDefaultConfig };
 
 	constructor(config?: any) {
 		if (!config) return;

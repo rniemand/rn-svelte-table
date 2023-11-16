@@ -1,6 +1,6 @@
 import type { TableConfig } from "$lib/types/_types.js";
 
-export const RnSvelteTableDefaultConfig: TableConfig = {
+export const TableDefaultConfig: TableConfig = {
 	baseClass: 'table',
 	striped: false,
 	hover: false,

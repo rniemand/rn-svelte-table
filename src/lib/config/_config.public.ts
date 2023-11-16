@@ -1,1 +1,1 @@
-export * from './RnSvelteTableDefaultConfig.js';
+export * from './TableDefaultConfig.js';

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import type { TableConfigBuilder } from "$lib/builders/_builders.js";
-	import { RnSvelteTableDefaultConfig } from "$lib/config/_config.js";
+	import { TableDefaultConfig } from "$lib/config/_config.js";
 	import type { TableConfig } from "$lib/types/_types.js";
 	import { compileTableConfig, generateTableClass } from "$lib/utils/_utils.js";
 
-	export let config: TableConfig | TableConfigBuilder | undefined | null = RnSvelteTableDefaultConfig;
+	export let config: TableConfig | TableConfigBuilder | undefined | null = TableDefaultConfig;
 
 	$: builtConfig = compileTableConfig(config);
 	$: tableClass = generateTableClass(builtConfig);

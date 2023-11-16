@@ -1,5 +1,5 @@
 import { TableConfigBuilder } from "$lib/builders/_builders.js";
-import { RnSvelteTableDefaultConfig } from "$lib/config/_config.js";
+import { TableDefaultConfig } from "$lib/config/_config.js";
 import type { TableConfig } from "$lib/types/_types.js";
 
 export function isTableConfig(value: any): value is TableConfig {
@@ -7,11 +7,11 @@ export function isTableConfig(value: any): value is TableConfig {
 }
 
 export const compileTableConfig = (_config: any) => {
-	if (!_config) return RnSvelteTableDefaultConfig;
+	if (!_config) return TableDefaultConfig;
 	if (_config instanceof TableConfigBuilder) return _config.build();
 	if (isTableConfig(_config)) return _config;
 	console.warn(`Unsupported table configuration provided - using defaults`);
-	return RnSvelteTableDefaultConfig;
+	return TableDefaultConfig;
 };
 
 export const generateTableClass = (_config: TableConfig) => {
