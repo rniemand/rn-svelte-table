@@ -18,7 +18,7 @@
 		.addColumn((builder) => builder.withContent('Column 2').withClass('text-center'))
 		.addColumn((builder) => builder.withContent('Column 3'));
 
-	let data = new TableDataBuilder()
+	let dataBuilder = new TableDataBuilder()
 		.addRow((row) =>
 			row
 				.withClass('text-center')
@@ -41,59 +41,9 @@
 				.addColumn((col) => col.withContent('row 3 - col 3'))
 		);
 
-	const dataStore = new TableDataStore().set(data.build());
-
-	setTimeout(() => {
-		dataStore.addRow(
-			new TableRowBuilder()
-				.addColumn((c) => c.withContent('row 4 - col 1'))
-				.addColumn((c) => c.withContent('row 4 - col 2'))
-				.addColumn((c) => c.withContent('row 4 - col 3'))
-		);
-		dataStore.addRow((builder) =>
-			builder
-				.addColumn((c) => c.withContent('row 5 - col 1'))
-				.addColumn((c) => c.withContent('row 5 - col 2'))
-				.addColumn((c) => c.withContent('row 5 - col 3'))
-		);
-		console.log('data has been modified');
-	}, 1500);
-
-	setTimeout(() => {
-		dataStore.clear();
-	}, 2000);
-
-	setTimeout(() => {
-		dataStore.addRows((builder) =>
-			builder
-				.addRow((row) =>
-					row
-						.addColumn((c) => c.withContent('new 1 - col 1'))
-						.addColumn((c) => c.withContent('new 1 - col 2'))
-						.addColumn((c) => c.withContent('new 1 - col 3'))
-				)
-				.addRow((row) =>
-					row
-						.addColumn((c) => c.withContent('new 2 - col 1'))
-						.addColumn((c) => c.withContent('new 2 - col 2'))
-						.addColumn((c) => c.withContent('new 2 - col 3'))
-				)
-				.addRow((row) =>
-					row
-						.addColumn((c) => c.withContent('new 3 - col 1'))
-						.addColumn((c) => c.withContent('new 3 - col 2'))
-						.addColumn((c) => c.withContent('new 3 - col 3'))
-				)
-				.addRow((row) =>
-					row
-						.addColumn((c) => c.withContent('new 4 - col 1'))
-						.addColumn((c) => c.withContent('new 4 - col 2'))
-						.addColumn((c) => c.withContent('new 4 - col 3'))
-				)
-		);
-	}, 3000);
+	const dataStore = new TableDataStore().set(dataBuilder);
 </script>
 
 <h2 class="text-center mb-3">Development</h2>
 
-<RnSvelteTable {config} {header} data={[]} {dataStore} />
+<RnSvelteTable {config} {header} {dataStore} />

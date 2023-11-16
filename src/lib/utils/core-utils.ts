@@ -1,6 +1,6 @@
-import { TableConfigBuilder, TableDataBuilder, TableHeaderBuilder } from "$lib/builders/_builders.js";
-import { TableDefaultConfig } from "$lib/config/_config.js";
-import type { TableConfig, TableHeader, TableRow } from "$lib/types/_types.js";
+import { TableConfigBuilder, TableDataBuilder, TableHeaderBuilder } from '$lib/builders/_builders.js';
+import { TableDefaultConfig } from '$lib/config/_config.js';
+import type { TableConfig, TableHeader, TableRow } from '$lib/types/_types.js';
 
 export function isTableConfig(value: any): value is TableConfig {
 	return (value as TableConfig).baseClass !== undefined;
@@ -15,16 +15,10 @@ export const compileTableConfig = (_config: any) => {
 };
 
 export const compileTableHeader = (header: TableHeader | TableHeaderBuilder) => {
-	if(!header) throw new Error('Property "header" is required!');
-	if(header instanceof TableHeaderBuilder) return header.build();
+	if (!header) throw new Error('Property "header" is required!');
+	if (header instanceof TableHeaderBuilder) return header.build();
 	return header;
-}
-
-export const compileTableData = (data: TableDataBuilder | TableRow[]) => {
-	if(!data) throw new Error('Property "data" is required!');
-	if(data instanceof TableDataBuilder) return data.build();
-	return data;
-}
+};
 
 export const generateTableClass = (_config: TableConfig) => {
 	const tblClasses: string[] = [_config.baseClass];

@@ -22,15 +22,34 @@ import { TableConfigBuilder, TableHeaderBuilder } from "rn-svelte-table";
 import { RnSvelteTable } from "rn-svelte-table";
 
 const config = new TableConfigBuilder().baseClass("something");
-const header = new TableHeaderBuilder()
-  .addColumn((builder) => builder.withContent("column 1").withClass("text-center"))
-  .addColumn((builder) => builder.withContent("column 2").withClass("text-center"))
-  // ...
-  ;
+  let dataBuilder = new TableDataBuilder()
+    .addRow((row) =>
+      row
+        .withClass('text-center')
+        .addColumn((col) => col.withContent('row 1 - col 1'))
+        .addColumn((col) => col.withContent('row 1 - col 2'))
+        .addColumn((col) => col.withContent('row 1 - col 3'))
+    )
+    .addRow((row) =>
+      row
+        .withClass('text-start')
+        .addColumn((col) => col.withContent('row 2 - col 1'))
+        .addColumn((col) => col.withContent('row 2 - col 2'))
+        .addColumn((col) => col.withContent('row 2 - col 3'))
+    )
+    .addRow((row) =>
+      row
+        .withClass('text-end')
+        .addColumn((col) => col.withContent('row 3 - col 1'))
+        .addColumn((col) => col.withContent('row 3 - col 2'))
+        .addColumn((col) => col.withContent('row 3 - col 3'))
+    );
+
+const dataStore = new TableDataStore().set(dataBuilder);
 ```
 
 ```html
-<RnSvelteTable {config} {header} />
+<RnSvelteTable {config} {header} {dataStore} />
 ```
 
 Currently it's that simple
