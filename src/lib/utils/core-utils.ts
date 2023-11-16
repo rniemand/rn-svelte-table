@@ -1,20 +1,20 @@
-import { RnSvelteTableConfigBuilder } from "$lib/builders/_builders.js";
+import { TableConfigBuilder } from "$lib/builders/_builders.js";
 import { RnSvelteTableDefaultConfig } from "$lib/config/_config.js";
-import type { RnSvelteTableConfig } from "$lib/types/_types.js";
+import type { TableConfig } from "$lib/types/_types.js";
 
-export function isRnSvelteTableConfig(value: any): value is RnSvelteTableConfig {
-	return (value as RnSvelteTableConfig).baseClass !== undefined;
+export function isTableConfig(value: any): value is TableConfig {
+	return (value as TableConfig).baseClass !== undefined;
 }
 
 export const compileTableConfig = (_config: any) => {
 	if (!_config) return RnSvelteTableDefaultConfig;
-	if (_config instanceof RnSvelteTableConfigBuilder) return _config.build();
-	if (isRnSvelteTableConfig(_config)) return _config;
+	if (_config instanceof TableConfigBuilder) return _config.build();
+	if (isTableConfig(_config)) return _config;
 	console.warn(`Unsupported table configuration provided - using defaults`);
 	return RnSvelteTableDefaultConfig;
 };
 
-export const generateTableClass = (_config: RnSvelteTableConfig) => {
+export const generateTableClass = (_config: TableConfig) => {
 	const tblClasses: string[] = [_config.baseClass];
 	if (_config.striped) tblClasses.push(_config.striped === true ? 'table-striped' : _config.striped);
 	if (_config.hover) tblClasses.push(_config.hover === true ? 'table-hover' : _config.hover);

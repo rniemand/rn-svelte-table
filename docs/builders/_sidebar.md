@@ -1,2 +1,2 @@
 - **[Builders](./builders/README.md)**
-- [RnSvelteTableConfigBuilder](./builders/RnSvelteTableConfigBuilder.md)
+- [TableConfigBuilder](./builders/TableConfigBuilder.md)

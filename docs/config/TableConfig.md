@@ -1,20 +1,20 @@
-# RnSvelteTableConfig
+# TableConfig
 
-Global configuration used by the `<RnSvelteTable />` component which can be defined manually or via the [RnSvelteTableConfigBuilder](./builders/RnSvelteTableConfigBuilder.md) builder.
+Global configuration used by the `<RnSvelteTable />` component which can be defined manually or via the [TableConfigBuilder](./builders/TableConfigBuilder.md) builder.
 
-The following configuration options are exposed through `RnSvelteTableConfig`:
+The following configuration options are exposed through `TableConfig`:
 
 ## Visual Options
 
 ### baseClass
 
-**Required**: Used to specify the base class applied to the generated table, by default this value is set to `table` when using the [RnSvelteTableConfigBuilder](./builders/RnSvelteTableConfigBuilder.md) builder.
+**Required**: Used to specify the base class applied to the generated table, by default this value is set to `table` when using the [TableConfigBuilder](./builders/TableConfigBuilder.md) builder.
 
 ```json
 { "baseClass": "table" }
 ```
 
-See [.baseClass()](./builders/RnSvelteTableConfigBuilder?id=baseclass) builder method.
+See [.baseClass()](./builders/TableConfigBuilder?id=baseclass) builder method.
 
 ### striped
 
@@ -28,7 +28,7 @@ Used to enable striped rows on the generated table, the following value types ar
 { "striped": true }
 ```
 
-See [.striped()](./builders/RnSvelteTableConfigBuilder?id=striped) builder method.
+See [.striped()](./builders/TableConfigBuilder?id=striped) builder method.
 
 ### hover
 
@@ -42,7 +42,7 @@ Used to enable a row hover effect on the generated table, the following value ty
 { "hover": true }
 ```
 
-See [.hover()](./builders/RnSvelteTableConfigBuilder?id=hover) builder method.
+See [.hover()](./builders/TableConfigBuilder?id=hover) builder method.
 
 ### bordered
 
@@ -56,7 +56,7 @@ Used to enable a border on the generated table, the following value types are su
 { "bordered": true }
 ```
 
-See [.bordered()](./builders/RnSvelteTableConfigBuilder?id=bordered) builder method.
+See [.bordered()](./builders/TableConfigBuilder?id=bordered) builder method.
 
 ### dark
 
@@ -70,7 +70,7 @@ Used to apply a dark-mode variant to the generated table, the following value ty
 { "dark": true }
 ```
 
-See [.dark()](./builders/RnSvelteTableConfigBuilder?id=dark) builder method.
+See [.dark()](./builders/TableConfigBuilder?id=dark) builder method.
 
 ### small
 
@@ -84,7 +84,7 @@ Used to render the generated table in a compact mode, the following value types 
 { "small": true }
 ```
 
-See [.small()](./builders/RnSvelteTableConfigBuilder?id=small) builder method.
+See [.small()](./builders/TableConfigBuilder?id=small) builder method.
 
 ### responsive
 
@@ -98,4 +98,4 @@ Used to wrap the generated table in a responsive `<div />` for use on smaller sc
 { "responsive": true }
 ```
 
-See [.responsive()](./builders/RnSvelteTableConfigBuilder?id=responsive) builder method.
+See [.responsive()](./builders/TableConfigBuilder?id=responsive) builder method.

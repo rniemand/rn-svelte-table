@@ -2,4 +2,4 @@
 
 Documentation for all configuration options provided by the `<RnSvelteTable />` component.
 
-- [RnSvelteTableConfig](./config/RnSvelteTableConfig) - core table configuration (see [RnSvelteTableConfigBuilder](./builders/RnSvelteTableConfigBuilder.md)).
+- [TableConfig](./config/TableConfig) - core table configuration (see [TableConfigBuilder](./builders/TableConfigBuilder.md)).

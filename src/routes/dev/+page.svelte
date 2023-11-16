@@ -1,8 +1,8 @@
 <script lang="ts">
 	import RnSvelteTable from "$lib/components/RnSvelteTable.svelte";
-	import { RnSvelteTableConfigBuilder } from "$lib/index.js";
+	import { TableConfigBuilder } from "$lib/index.js";
 
-	const builder = new RnSvelteTableConfigBuilder({
+	const builder = new TableConfigBuilder({
 		striped: true,
 		hover: true,
 		bordered: true,

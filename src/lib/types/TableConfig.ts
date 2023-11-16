@@ -1,4 +1,4 @@
-export type RnSvelteTableConfig = {
+export type TableConfig = {
 	baseClass: string;
 	striped?: boolean | string;
 	hover?: boolean | string;

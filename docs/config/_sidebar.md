@@ -1,2 +1,2 @@
 - **[Configuration](./config/README.md)**
-- [RnSvelteTableConfig](./config/RnSvelteTableConfig.md)
+- [TableConfig](./config/TableConfig.md)
