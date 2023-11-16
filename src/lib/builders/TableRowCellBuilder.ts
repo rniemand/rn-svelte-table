@@ -1,23 +1,23 @@
-import type { TableHeaderCell } from "$lib/types/_types.js";
+import type { TableRowCell } from "$lib/types/_types";
 
-export class TableHeaderCellBuilder {
-	// TODO: [DOCUMENTATION] document this
-	private _cell: TableHeaderCell = {
-		columnIndex: 0,
-		content: undefined
-	};
+export class TableRowCellBuilder {
+    // TODO: [DOCUMENTATION] document this
+    private _cell: TableRowCell = {
+        columnIndex: 0,
+        content: undefined
+    };
 
-	constructor(columnIndex: number) {
-		this._cell.columnIndex = columnIndex;
-	}
+    constructor(columnIndex: number) {
+        this._cell.columnIndex = columnIndex;
+    }
 
-	withContent = (content: any) => {
+    withContent = (content: any) => {
 		this._cell.content = content;
 		return this;
 	};
 
 	withClass = (className: string | any[] | (() => string)) => {
-		// TODO: [OPTIMIZE] <1700109597322> combine
+        // TODO: [OPTIMIZE] <1700109597322> combine
 		if(typeof className === 'string') {
 			this._cell.class = className;
 		}
@@ -38,5 +38,5 @@ export class TableHeaderCellBuilder {
 		return this;
 	}
 
-	build = () => this._cell;
+    build = () => this._cell;
 };
