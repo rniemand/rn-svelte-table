@@ -1,6 +1,6 @@
 <script lang="ts">
-	import RnSvelteTable from '$lib/RnSvelteTable.svelte';
-	import { RnSvelteTableConfigBuilder } from '$lib/index.js';
+	import RnSvelteTable from "$lib/components/RnSvelteTable.svelte";
+	import { RnSvelteTableConfigBuilder } from "$lib/index.js";
 
 	const builder = new RnSvelteTableConfigBuilder({
 		striped: true,
@@ -12,6 +12,6 @@
 	});
 </script>
 
-<h2>Development</h2>
+<h2 class="text-center mb-3">Development</h2>
 
 <RnSvelteTable config={builder} />

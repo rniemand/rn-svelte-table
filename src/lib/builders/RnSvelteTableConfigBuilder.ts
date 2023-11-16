@@ -1,26 +1,5 @@
-export type RnSvelteTableConfig = {
-	baseClass: string;
-	striped?: boolean | string;
-	hover?: boolean | string;
-	bordered?: boolean | string;
-	dark?: boolean | string;
-	small?: boolean | string;
-	responsive?: boolean | string;
-};
-
-export function isRnSvelteTableConfig(value: any): value is RnSvelteTableConfig {
-	return (value as RnSvelteTableConfig).baseClass !== undefined;
-}
-
-export const RnSvelteTableDefaultConfig: RnSvelteTableConfig = {
-	baseClass: 'table',
-	striped: false,
-	hover: false,
-	bordered: false,
-	dark: false,
-	small: false,
-	responsive: true
-};
+import { RnSvelteTableDefaultConfig } from "$lib/config/_config.js";
+import type { RnSvelteTableConfig } from "$lib/types/_types.js";
 
 export class RnSvelteTableConfigBuilder {
 	private _config: RnSvelteTableConfig = { ...RnSvelteTableDefaultConfig };
