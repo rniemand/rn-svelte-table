@@ -17,4 +17,4 @@ export class TableDataBuilder {
     };
 
     build = () => this._rows;
-}
+};
