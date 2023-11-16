@@ -4,6 +4,8 @@ Holder
 
 Documentation can be found [here](https://www.richardn.ca/rn-svelte-table/#/).
 
+NPM package can be found [here](https://www.npmjs.com/package/rn-svelte-table).
+
 ## Development
 
 Holder
