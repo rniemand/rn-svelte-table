@@ -17,5 +17,8 @@ export type TableConfig = {
 	// General CSS Component Options
 	btnBaseClass?: string;
 	btnDangerClass?: string;
+	btnInfoClass?: string;
 	inputBaseClass?: string;
+	dropdownWrappingClass?: string;
+	dropdownContentClass?: string;
 };

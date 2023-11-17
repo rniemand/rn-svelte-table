@@ -19,5 +19,8 @@ export const TableDefaultConfig: TableConfig = {
 	// General CSS Component Options
 	btnBaseClass: 'btn',
 	btnDangerClass: 'btn-danger',
-	inputBaseClass: 'form-control'
+	btnInfoClass: 'btn-info',
+	inputBaseClass: 'form-control',
+	dropdownWrappingClass: '',
+	dropdownContentClass: ''
 };

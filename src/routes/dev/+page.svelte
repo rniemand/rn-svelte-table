@@ -1,36 +1,25 @@
 <script lang="ts">
 	import RnSvelteTable from '$lib/components/RnSvelteTable.svelte';
-	import { TableConfigBuilder, TableDataBuilder, TableDataStore, TableHeaderBuilder, TableRowBuilder } from '$lib/index.js';
+	import { TableConfigBuilder, TableDataBuilder, TableDataStore, TableHeaderBuilder } from '$lib/index.js';
 
-	const config = new TableConfigBuilder().striped().hover().bordered().responsive().tableControls().tableControlsClass('d-flex');
+	const config = new TableConfigBuilder().striped().hover().dark().bordered().responsive().tableControls().tableControlsClass('d-flex').dropdownWrappingClass('custom-wrapper');
 
-	const header = new TableHeaderBuilder()
-		.addColumn((builder) => builder.withContent('Column 1'))
-		.addColumn((builder) => builder.withContent('Column 2').withClass('text-center'))
-		.addColumn((builder) => builder.withContent('Column 3'));
+	const columns = [...'abcdefghijklmnopqrstuvwxyz'.split('')];
+	const header = new TableHeaderBuilder();
+	const dataBuilder = new TableDataBuilder();
 
-	let dataBuilder = new TableDataBuilder()
-		.addRow((row) =>
-			row
-				.withClass('text-center')
-				.addColumn((col) => col.withContent('row 1 - col 1'))
-				.addColumn((col) => col.withContent('row 1 - col 2'))
-				.addColumn((col) => col.withContent('row 1 - col 3'))
-		)
-		.addRow((row) =>
-			row
-				.withClass('text-start')
-				.addColumn((col) => col.withContent('row 2 - col 1'))
-				.addColumn((col) => col.withContent('row 2 - col 2'))
-				.addColumn((col) => col.withContent('row 2 - col 3'))
-		)
-		.addRow((row) =>
-			row
-				.withClass('text-end')
-				.addColumn((col) => col.withContent('row 3 - col 1'))
-				.addColumn((col) => col.withContent('row 3 - col 2'))
-				.addColumn((col) => col.withContent('row 3 - col 3'))
-		);
+	for (const key of columns) {
+		header.addColumn((col) => col.withContent(`Column ${key.toUpperCase()}`).withNoBreak());
+	}
+
+	for (let i = 0; i < 10; i++) {
+		dataBuilder.addRow((builder) => {
+			for (const key of columns) {
+				builder.addColumn((col) => col.withContent(`Row ${i + 1} - column ${key}`));
+			}
+			return builder;
+		});
+	}
 
 	const dataStore = new TableDataStore().set(dataBuilder);
 </script>

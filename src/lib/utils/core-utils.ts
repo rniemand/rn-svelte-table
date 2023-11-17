@@ -29,3 +29,23 @@ export const generateTableClass = (_config: TableConfig) => {
 	if (_config.small) tblClasses.push(_config.small === true ? 'table-sm' : _config.small);
 	return tblClasses.join(' ');
 };
+
+export const compileClassList = (classes: any[]) => {
+	return classes
+		.reduce((pv: string[], cv) => {
+			if (typeof cv === 'string') {
+				if (cv.length > 0) pv.push(cv);
+			} else if (typeof cv === 'function') {
+				const fnOutput = cv();
+				if (typeof fnOutput === 'string') {
+					pv.push(fnOutput);
+				} else {
+					console.warn(`Unsupported fn() output type: ${typeof fnOutput}`);
+				}
+			} else {
+				console.warn(`Unsupported CSS class type: ${typeof cv}`);
+			}
+			return pv;
+		}, [])
+		.join(' ');
+};

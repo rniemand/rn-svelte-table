@@ -24,7 +24,10 @@ export class TableConfigBuilder {
 		// General CSS Component Options
 		if (config.hasOwnProperty('btnBaseClass')) this._config.btnBaseClass = config.btnBaseClass;
 		if (config.hasOwnProperty('btnDangerClass')) this._config.btnDangerClass = config.btnDangerClass;
+		if (config.hasOwnProperty('btnInfoClass')) this._config.btnInfoClass = config.btnInfoClass;
 		if (config.hasOwnProperty('inputBaseClass')) this._config.inputBaseClass = config.inputBaseClass;
+		if (config.hasOwnProperty('dropdownWrappingClass')) this._config.dropdownWrappingClass = config.dropdownWrappingClass;
+		if (config.hasOwnProperty('dropdownContentClass')) this._config.dropdownContentClass = config.dropdownContentClass;
 	}
 
 	baseClass = (baseClass: string) => {
@@ -97,9 +100,27 @@ export class TableConfigBuilder {
 		return this;
 	};
 
+	btnInfoClass = (customClass: string) => {
+		// TODO: [DOCUMENT] document this
+		this._config.btnInfoClass = customClass;
+		return this;
+	};
+
 	inputBaseClass = (customClass: string) => {
 		// TODO: [DOCUMENT] document this
 		this._config.inputBaseClass = customClass;
+		return this;
+	};
+
+	dropdownWrappingClass = (customClass: string) => {
+		// TODO: [DOCUMENT] document this
+		this._config.dropdownWrappingClass = customClass;
+		return this;
+	};
+
+	dropdownContentClass = (customClass: string) => {
+		// TODO: [DOCUMENT] document this
+		this._config.dropdownContentClass = customClass;
 		return this;
 	};
 

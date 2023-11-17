@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { TableConfigBuilder, TableHeaderBuilder } from '$lib/builders/_builders.js';
-	import type { TableConfig, TableDataStore, TableHeader, TableRow } from '$lib/types/_types.js';
+	import type { TableConfig, TableDataStore, TableHeader, TableHeaderCell, TableRow } from '$lib/types/_types.js';
 	import { compileTableConfig, compileTableHeader, generateTableClass } from '$lib/utils/_utils.js';
 	import { onMount } from 'svelte';
 	import RnTableBody from './RnTableBody.svelte';
@@ -11,6 +11,11 @@
 	export let header: TableHeader | TableHeaderBuilder;
 	export let dataStore: TableDataStore;
 	let storeRows: TableRow[] = [];
+
+	const toggleColumn = (col: TableHeaderCell) => {
+		col.visible = !col.visible;
+		header = header;
+	};
 
 	onMount(() => {
 		const rowsSub = dataStore?.subscribe((_rows: TableRow[]) => {
@@ -28,11 +33,11 @@
 </script>
 
 {#if builtConfig.tableControls}
-	<RnTableControls config={builtConfig} header={builtHeader} />
+	<RnTableControls config={builtConfig} header={builtHeader} {toggleColumn} />
 {/if}
 <div class:table-responsive={builtConfig.responsive === true} class={typeof builtConfig.responsive === 'string' ? builtConfig.responsive : ''}>
 	<table class={tableClass}>
 		<RnTableHeader header={builtHeader} />
-		<RnTableBody rows={storeRows} />
+		<RnTableBody header={builtHeader} rows={storeRows} />
 	</table>
 </div>
