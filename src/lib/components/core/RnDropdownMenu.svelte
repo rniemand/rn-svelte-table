@@ -51,6 +51,7 @@
 		display: none;
 		position: absolute;
 		background-color: #fff;
+		color: black;
 		min-width: 250px;
 		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 		z-index: 1;

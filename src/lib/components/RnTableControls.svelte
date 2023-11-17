@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { TableDefaultConfig } from '$lib/config/TableDefaultConfig';
 	import type { TableConfig, TableHeader, TableHeaderCell } from '$lib/types/_types';
-	import { numArraysEqual } from '$lib/utils/core-utils';
+	import { compileClassList, numArraysEqual } from '$lib/utils/core-utils';
 	import RnButton from './core/RnButton.svelte';
 	import RnDropdownMenu from './core/RnDropdownMenu.svelte';
 	import RnTextInput from './core/RnTextInput.svelte';
@@ -10,15 +10,15 @@
 	export let header: TableHeader;
 	export let toggleColumn: (_col: TableHeaderCell) => void;
 	export let resetColumns: () => void;
-	export let filterTableData: (_term: string) => void;
+	export let searchTerm: string = '';
 	let originalColumnIdxs: number[] = [];
 	let columnsChanged: boolean = false;
-	let searchTerm: string = '';
 
 	const generateClassList = (_config: TableConfig) => {
 		const generated: string[] = ['rn-tbl-controls'];
 		generated.push(config.tableControlsClass || TableDefaultConfig.tableControlsClass || 'table-controls');
-		return generated.join(' ');
+		generated.push(config.dark ? 'dark' : '');
+		return compileClassList(generated);
 	};
 
 	const extractOriginalColumnIdxs = (_head: TableHeader) => {
@@ -39,7 +39,6 @@
 	$: originalColumnIdxs = extractOriginalColumnIdxs(header);
 	$: columnsChanged = getColumnsChanged(header);
 	$: controlClassList = generateClassList(config);
-	$: filterTableData(searchTerm);
 </script>
 
 <div class={controlClassList}>
@@ -49,7 +48,7 @@
 	{/if}
 	{#if config.enableColumnFilter}
 		<RnDropdownMenu {config}>
-			<h1>Head</h1>
+			<h1 class="header">Table Columns</h1>
 			<div class="columns">
 				{#each header.columns as col}
 					<a class="column" href="#!" on:click={() => toggleColumn(col)}>
@@ -78,10 +77,25 @@
 		display: block;
 		text-decoration: none;
 		color: inherit;
+		padding-left: 0.3rem;
+	}
+	a.column:hover {
+		background-color: rgba(0, 0, 0, 0.2);
 	}
 
-	.columns {
+	.rn-tbl-controls .columns {
 		max-height: 200px;
 		overflow-y: auto;
+		border: 1px solid #cfcfcf;
+		border-radius: 0.3rem;
+		margin-bottom: 0.5rem;
+		margin-top: 0.5rem;
+	}
+	.rn-tbl-controls.dark .columns {
+		border: 1px solid #404040;
+	}
+
+	.header {
+		text-align: center;
 	}
 </style>

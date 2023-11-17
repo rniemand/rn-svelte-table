@@ -11,14 +11,17 @@
 	export let header: TableHeader | TableHeaderBuilder;
 	export let dataStore: TableDataStore;
 	let storeRows: TableRow[] = [];
+	let searchTerm: string = '';
 
 	const toggleColumn = (col: TableHeaderCell) => {
 		col.visible = !col.visible;
 		header = header;
 	};
 
-	const filterTableData = (term: string) => {
-		console.log('filterTableData()', term);
+	const filterTableData = (term: string, rows: TableRow[]) => {
+		if (!term || term == '') return rows.slice();
+		const safeTerm = term.toLowerCase().trim();
+		return rows.filter((x) => x.searchString.indexOf(safeTerm) !== -1);
 	};
 
 	const resetColumns = () => {
@@ -41,14 +44,15 @@
 	$: builtConfig = compileTableConfig(config);
 	$: builtHeader = compileTableHeader(header);
 	$: tableClass = generateTableClass(builtConfig);
+	$: displayRows = filterTableData(searchTerm, storeRows);
 </script>
 
 {#if builtConfig.tableControls}
-	<RnTableControls config={builtConfig} header={builtHeader} {toggleColumn} {filterTableData} {resetColumns} />
+	<RnTableControls config={builtConfig} header={builtHeader} {toggleColumn} bind:searchTerm {resetColumns} />
 {/if}
 <div class:table-responsive={builtConfig.responsive === true} class={typeof builtConfig.responsive === 'string' ? builtConfig.responsive : ''}>
 	<table class={tableClass}>
 		<RnTableHeader header={builtHeader} />
-		<RnTableBody header={builtHeader} rows={storeRows} />
+		<RnTableBody header={builtHeader} rows={displayRows} />
 	</table>
 </div>
