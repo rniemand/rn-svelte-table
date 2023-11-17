@@ -13,7 +13,7 @@
 			col
 				.withContent(`Column ${key.toUpperCase()}`)
 				.withNoBreak()
-				.visible(Math.random() * 10 > 5)
+				.visibleAndDefault(Math.random() * 10 > 5)
 		);
 	}
 

@@ -21,6 +21,13 @@
 		console.log('filterTableData()', term);
 	};
 
+	const resetColumns = () => {
+		for (const col of builtHeader.columns) {
+			col.visible = col.defaultVisible;
+		}
+		builtHeader = builtHeader;
+	};
+
 	onMount(() => {
 		const rowsSub = dataStore?.subscribe((_rows: TableRow[]) => {
 			storeRows = _rows;
@@ -37,7 +44,7 @@
 </script>
 
 {#if builtConfig.tableControls}
-	<RnTableControls config={builtConfig} header={builtHeader} {toggleColumn} {filterTableData} />
+	<RnTableControls config={builtConfig} header={builtHeader} {toggleColumn} {filterTableData} {resetColumns} />
 {/if}
 <div class:table-responsive={builtConfig.responsive === true} class={typeof builtConfig.responsive === 'string' ? builtConfig.responsive : ''}>
 	<table class={tableClass}>

@@ -5,6 +5,7 @@ export class TableHeaderCellBuilder {
 	private _cell: TableHeaderCell = {
 		columnIndex: 0,
 		visible: true, // TODO: [DOCUMENT] document this
+		defaultVisible: false, // TODO: [DOCUMENT] document this
 		content: undefined,
 		noBreak: false,
 		class: ''
@@ -50,6 +51,13 @@ export class TableHeaderCellBuilder {
 	visible = (visible: boolean = true) => {
 		// TODO: [DOCUMENT] document this
 		this._cell.visible = visible;
+		return this;
+	};
+
+	visibleAndDefault = (visible: boolean = true) => {
+		// TODO: [DOCUMENT] document this
+		this._cell.visible = visible;
+		this._cell.defaultVisible = visible;
 		return this;
 	};
 

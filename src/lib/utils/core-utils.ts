@@ -1,6 +1,6 @@
-import { TableConfigBuilder, TableDataBuilder, TableHeaderBuilder } from '$lib/builders/_builders.js';
+import { TableConfigBuilder, TableHeaderBuilder } from '$lib/builders/_builders.js';
 import { TableDefaultConfig } from '$lib/config/_config.js';
-import type { TableConfig, TableHeader, TableRow } from '$lib/types/_types.js';
+import type { TableConfig, TableHeader } from '$lib/types/_types.js';
 
 export function isTableConfig(value: any): value is TableConfig {
 	return (value as TableConfig).baseClass !== undefined;
@@ -48,4 +48,12 @@ export const compileClassList = (classes: any[]) => {
 			return pv;
 		}, [])
 		.join(' ');
+};
+
+export const numArraysEqual = (a: number[], b: number[]) => {
+	if (a.length != b.length) return false;
+	for (const entry of a) {
+		if (b.indexOf(entry) === -1) return false;
+	}
+	return true;
 };

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { TableDefaultConfig } from '$lib/config/TableDefaultConfig';
 	import type { TableConfig, TableHeader, TableHeaderCell } from '$lib/types/_types';
+	import { numArraysEqual } from '$lib/utils/core-utils';
 	import RnButton from './core/RnButton.svelte';
 	import RnDropdownMenu from './core/RnDropdownMenu.svelte';
 	import RnTextInput from './core/RnTextInput.svelte';
@@ -8,7 +9,10 @@
 	export let config: TableConfig;
 	export let header: TableHeader;
 	export let toggleColumn: (_col: TableHeaderCell) => void;
+	export let resetColumns: () => void;
 	export let filterTableData: (_term: string) => void;
+	let originalColumnIdxs: number[] = [];
+	let columnsChanged: boolean = false;
 	let searchTerm: string = '';
 
 	const generateClassList = (_config: TableConfig) => {
@@ -17,6 +21,23 @@
 		return generated.join(' ');
 	};
 
+	const extractOriginalColumnIdxs = (_head: TableHeader) => {
+		return _head.columns.reduce((pv: number[], cv) => {
+			if (cv.defaultVisible) pv.push(cv.columnIndex);
+			return pv;
+		}, []);
+	};
+
+	const getColumnsChanged = (_head: TableHeader) => {
+		const visibleColumnIdxs = _head.columns.reduce((pv: number[], cv) => {
+			if (cv.visible) pv.push(cv.columnIndex);
+			return pv;
+		}, []);
+		return !numArraysEqual(originalColumnIdxs, visibleColumnIdxs);
+	};
+
+	$: originalColumnIdxs = extractOriginalColumnIdxs(header);
+	$: columnsChanged = getColumnsChanged(header);
 	$: controlClassList = generateClassList(config);
 	$: filterTableData(searchTerm);
 </script>
@@ -38,7 +59,7 @@
 				{/each}
 			</div>
 			<div>
-				<RnButton {config} color="warning" fullWidth>Reset Columns</RnButton>
+				<RnButton {config} color="warning" fullWidth disabled={!columnsChanged} on:click={resetColumns}>Reset Columns</RnButton>
 			</div>
 		</RnDropdownMenu>
 	{/if}
