@@ -25,6 +25,7 @@ export class TableConfigBuilder {
 		if (config.hasOwnProperty('btnBaseClass')) this._config.btnBaseClass = config.btnBaseClass;
 		if (config.hasOwnProperty('btnDangerClass')) this._config.btnDangerClass = config.btnDangerClass;
 		if (config.hasOwnProperty('btnInfoClass')) this._config.btnInfoClass = config.btnInfoClass;
+		if (config.hasOwnProperty('bthWarningClass')) this._config.bthWarningClass = config.bthWarningClass;
 		if (config.hasOwnProperty('inputBaseClass')) this._config.inputBaseClass = config.inputBaseClass;
 		if (config.hasOwnProperty('dropdownWrappingClass')) this._config.dropdownWrappingClass = config.dropdownWrappingClass;
 		if (config.hasOwnProperty('dropdownContentClass')) this._config.dropdownContentClass = config.dropdownContentClass;
@@ -103,6 +104,12 @@ export class TableConfigBuilder {
 	btnInfoClass = (customClass: string) => {
 		// TODO: [DOCUMENT] document this
 		this._config.btnInfoClass = customClass;
+		return this;
+	};
+
+	bthWarningClass = (customClass: string) => {
+		// TODO: [DOCUMENT] document this
+		this._config.bthWarningClass = customClass;
 		return this;
 	};
 

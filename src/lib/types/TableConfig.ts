@@ -15,10 +15,11 @@ export type TableConfig = {
 	enableColumnFilter?: boolean; // TODO: [DOCUMENT] document this
 
 	// General CSS Component Options
-	btnBaseClass?: string;
-	btnDangerClass?: string;
-	btnInfoClass?: string;
-	inputBaseClass?: string;
-	dropdownWrappingClass?: string;
-	dropdownContentClass?: string;
+	btnBaseClass?: string; // TODO: [DOCUMENT] document this
+	btnDangerClass?: string; // TODO: [DOCUMENT] document this
+	btnInfoClass?: string; // TODO: [DOCUMENT] document this
+	bthWarningClass?: string; // TODO: [DOCUMENT] document this
+	inputBaseClass?: string; // TODO: [DOCUMENT] document this
+	dropdownWrappingClass?: string; // TODO: [DOCUMENT] document this
+	dropdownContentClass?: string; // TODO: [DOCUMENT] document this
 };

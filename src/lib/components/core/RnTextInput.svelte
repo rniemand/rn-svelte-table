@@ -4,6 +4,7 @@
 
 	export let config: TableConfig;
 	export let className: string = '';
+	export let value: string = '';
 
 	const generateClassList = (_class: string) => {
 		const generated = [config.inputBaseClass];
@@ -14,4 +15,4 @@
 	$: inputClass = generateClassList(className);
 </script>
 
-<input class={inputClass} type="text" />
+<input class={inputClass} type="text" bind:value />

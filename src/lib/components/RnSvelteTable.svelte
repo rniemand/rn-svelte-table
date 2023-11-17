@@ -17,6 +17,10 @@
 		header = header;
 	};
 
+	const filterTableData = (term: string) => {
+		console.log('filterTableData()', term);
+	};
+
 	onMount(() => {
 		const rowsSub = dataStore?.subscribe((_rows: TableRow[]) => {
 			storeRows = _rows;
@@ -33,7 +37,7 @@
 </script>
 
 {#if builtConfig.tableControls}
-	<RnTableControls config={builtConfig} header={builtHeader} {toggleColumn} />
+	<RnTableControls config={builtConfig} header={builtHeader} {toggleColumn} {filterTableData} />
 {/if}
 <div class:table-responsive={builtConfig.responsive === true} class={typeof builtConfig.responsive === 'string' ? builtConfig.responsive : ''}>
 	<table class={tableClass}>

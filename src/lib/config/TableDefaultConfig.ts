@@ -20,6 +20,7 @@ export const TableDefaultConfig: TableConfig = {
 	btnBaseClass: 'btn',
 	btnDangerClass: 'btn-danger',
 	btnInfoClass: 'btn-info',
+	bthWarningClass: 'btn-warning',
 	inputBaseClass: 'form-control',
 	dropdownWrappingClass: '',
 	dropdownContentClass: ''

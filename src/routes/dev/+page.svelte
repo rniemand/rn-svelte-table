@@ -9,7 +9,12 @@
 	const dataBuilder = new TableDataBuilder();
 
 	for (const key of columns) {
-		header.addColumn((col) => col.withContent(`Column ${key.toUpperCase()}`).withNoBreak());
+		header.addColumn((col) =>
+			col
+				.withContent(`Column ${key.toUpperCase()}`)
+				.withNoBreak()
+				.visible(Math.random() * 10 > 5)
+		);
 	}
 
 	for (let i = 0; i < 10; i++) {

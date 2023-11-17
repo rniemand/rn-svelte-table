@@ -8,6 +8,8 @@
 	export let config: TableConfig;
 	export let header: TableHeader;
 	export let toggleColumn: (_col: TableHeaderCell) => void;
+	export let filterTableData: (_term: string) => void;
+	let searchTerm: string = '';
 
 	const generateClassList = (_config: TableConfig) => {
 		const generated: string[] = ['rn-tbl-controls'];
@@ -16,12 +18,13 @@
 	};
 
 	$: controlClassList = generateClassList(config);
+	$: filterTableData(searchTerm);
 </script>
 
 <div class={controlClassList}>
 	{#if config.enableSearch}
-		<RnTextInput {config} className="padEnd" />
-		<RnButton {config} color="danger" className={config.enableColumnFilter ? 'padEnd' : ''}>Clear</RnButton>
+		<RnTextInput {config} className="padEnd" bind:value={searchTerm} />
+		<RnButton {config} color="danger" className={config.enableColumnFilter ? 'padEnd' : ''} disabled={searchTerm.length == 0} on:click={() => (searchTerm = '')}>Clear</RnButton>
 	{/if}
 	{#if config.enableColumnFilter}
 		<RnDropdownMenu {config}>
@@ -33,6 +36,9 @@
 						{col.content}
 					</a>
 				{/each}
+			</div>
+			<div>
+				<RnButton {config} color="warning" fullWidth>Reset Columns</RnButton>
 			</div>
 		</RnDropdownMenu>
 	{/if}
