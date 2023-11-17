@@ -1,0 +1,16 @@
+<script lang="ts">
+	import type { TableConfig } from '$lib/types/TableConfig';
+
+	export let config: TableConfig;
+	export let className: string = '';
+
+	const generateClassList = (_class: string) => {
+		const generated = [config.inputBaseClass];
+		if (_class.length > 0) generated.push(_class);
+		return generated.join(' ');
+	};
+
+	$: inputClass = generateClassList(className);
+</script>
+
+<input class={inputClass} type="text" />

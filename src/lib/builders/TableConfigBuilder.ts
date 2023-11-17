@@ -1,11 +1,12 @@
-import { TableDefaultConfig } from "$lib/config/_config.js";
-import type { TableConfig } from "$lib/types/_types.js";
+import { TableDefaultConfig } from '$lib/config/_config.js';
+import type { TableConfig } from '$lib/types/_types.js';
 
 export class TableConfigBuilder {
 	private _config: TableConfig = { ...TableDefaultConfig };
 
 	constructor(config?: any) {
 		if (!config) return;
+		// Styling Options
 		if (config.hasOwnProperty('baseClass')) this._config.baseClass = config.baseClass;
 		if (config.hasOwnProperty('striped')) this._config.striped = config.striped;
 		if (config.hasOwnProperty('hover')) this._config.hover = config.hover;
@@ -13,6 +14,17 @@ export class TableConfigBuilder {
 		if (config.hasOwnProperty('dark')) this._config.dark = config.dark;
 		if (config.hasOwnProperty('small')) this._config.small = config.small;
 		if (config.hasOwnProperty('responsive')) this._config.responsive = config.responsive;
+
+		// Top Table Control Options
+		if (config.hasOwnProperty('tableControls')) this._config.tableControls = config.tableControls;
+		if (config.hasOwnProperty('enableColumnFilter')) this._config.enableColumnFilter = config.enableColumnFilter;
+		if (config.hasOwnProperty('enableSearch')) this._config.enableSearch = config.enableSearch;
+		if (config.hasOwnProperty('tableControlsClass')) this._config.tableControlsClass = config.tableControlsClass;
+
+		// General CSS Component Options
+		if (config.hasOwnProperty('btnBaseClass')) this._config.btnBaseClass = config.btnBaseClass;
+		if (config.hasOwnProperty('btnDangerClass')) this._config.btnDangerClass = config.btnDangerClass;
+		if (config.hasOwnProperty('inputBaseClass')) this._config.inputBaseClass = config.inputBaseClass;
 	}
 
 	baseClass = (baseClass: string) => {
@@ -47,6 +59,47 @@ export class TableConfigBuilder {
 
 	responsive = (value: boolean | string = true) => {
 		this._config.responsive = value;
+		return this;
+	};
+
+	tableControls = (enabled: boolean = true) => {
+		this._config.tableControls = enabled;
+		return this;
+	};
+
+	enableColumnFilter = (enabled: boolean = true) => {
+		// TODO: [DOCUMENT] document this
+		this._config.enableColumnFilter = enabled;
+		return this;
+	};
+
+	tableControlsClass = (customClass: string) => {
+		// TODO: [DOCUMENT] document this
+		this._config.tableControlsClass = customClass;
+		return this;
+	};
+
+	enableSearch = (enabled: boolean = true) => {
+		// TODO: [DOCUMENT] document this
+		this._config.enableSearch = enabled;
+		return this;
+	};
+
+	btnBaseClass = (customClass: string) => {
+		// TODO: [DOCUMENT] document this
+		this._config.btnBaseClass = customClass;
+		return this;
+	};
+
+	btnDangerClass = (customClass: string) => {
+		// TODO: [DOCUMENT] document this
+		this._config.btnDangerClass = customClass;
+		return this;
+	};
+
+	inputBaseClass = (customClass: string) => {
+		// TODO: [DOCUMENT] document this
+		this._config.inputBaseClass = customClass;
 		return this;
 	};
 

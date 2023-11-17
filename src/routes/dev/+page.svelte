@@ -2,16 +2,7 @@
 	import RnSvelteTable from '$lib/components/RnSvelteTable.svelte';
 	import { TableConfigBuilder, TableDataBuilder, TableDataStore, TableHeaderBuilder, TableRowBuilder } from '$lib/index.js';
 
-	console.clear();
-
-	const config = new TableConfigBuilder({
-		striped: true,
-		hover: true,
-		bordered: true,
-		dark: false,
-		small: false,
-		responsive: true
-	});
+	const config = new TableConfigBuilder().striped().hover().bordered().responsive().tableControls().tableControlsClass('d-flex');
 
 	const header = new TableHeaderBuilder()
 		.addColumn((builder) => builder.withContent('Column 1'))

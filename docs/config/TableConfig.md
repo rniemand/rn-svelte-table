@@ -99,3 +99,17 @@ Used to wrap the generated table in a responsive `<div />` for use on smaller sc
 ```
 
 See [.responsive()](./builders/TableConfigBuilder?id=responsive) builder method.
+
+## Top Table Controls
+
+### tableControls
+
+Enables the top control panel on the generated table.
+
+- `bool` - when **true** the table controls will be added to the top of the generated table.
+
+```json
+{ "tableControls": true }
+```
+
+See [.tableControls()](./builders/TableConfigBuilder?id=tableControls) builder method.

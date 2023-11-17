@@ -6,7 +6,7 @@ export function isTableConfig(value: any): value is TableConfig {
 	return (value as TableConfig).baseClass !== undefined;
 }
 
-export const compileTableConfig = (_config: any) => {
+export const compileTableConfig = (_config: TableConfig | TableConfigBuilder) => {
 	if (!_config) return TableDefaultConfig;
 	if (_config instanceof TableConfigBuilder) return _config.build();
 	if (isTableConfig(_config)) return _config;
