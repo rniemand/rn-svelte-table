@@ -4,6 +4,7 @@
 	import RnButton from './RnButton.svelte';
 
 	export let config: TableConfig;
+	let htmlDiv: HTMLDivElement;
 	let shown: boolean = false;
 
 	const generateDropdownClassList = (_config: TableConfig) => {
@@ -13,10 +14,27 @@
 		return compileClassList(generated);
 	};
 
+	const isMe = (evt: Event) => {
+		let target = <HTMLElement>evt.target;
+		while (target) {
+			if (target === htmlDiv) return true;
+			target = <HTMLElement>target.parentElement;
+		}
+		return false;
+	};
+
+	const handleWindowClick = (evt: Event) => {
+		if (!shown || !htmlDiv) return;
+		if (isMe(evt)) return;
+		shown = false;
+	};
+
 	$: ddClassList = generateDropdownClassList(config);
 </script>
 
-<div class={ddClassList}>
+<svelte:window on:click={handleWindowClick} />
+
+<div class={ddClassList} bind:this={htmlDiv}>
 	<RnButton {config} color="info" on:click={() => (shown = !shown)}>Options</RnButton>
 	<div class="rn-dd-content {config.dropdownContentClass}" class:show={shown}>
 		{#if shown}<slot />{/if}
