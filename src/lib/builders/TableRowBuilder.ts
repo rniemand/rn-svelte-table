@@ -1,4 +1,4 @@
-import { TableRow } from '$lib/types/_types';
+import { TableRow } from '$lib/modals/_modals';
 import { TableRowCellBuilder } from './_builders';
 
 export class TableRowBuilder {

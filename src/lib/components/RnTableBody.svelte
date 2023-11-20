@@ -1,5 +1,6 @@
 <script lang="ts">
-	import type { TableHeader, TableRow, TableRowCell } from '$lib/types/_types';
+	import type { TableRow, TableRowCell } from '$lib/modals/_modals';
+	import type { TableHeader } from '$lib/types/_types';
 	export let rows: TableRow[];
 	export let header: TableHeader;
 

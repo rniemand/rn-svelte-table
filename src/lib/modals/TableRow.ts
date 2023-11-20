@@ -1,4 +1,4 @@
-import type { TableRowCell } from './_types';
+import type { TableRowCell } from './_modals';
 
 export class TableRow {
 	// TODO: [DOCUMENTATION] document this
