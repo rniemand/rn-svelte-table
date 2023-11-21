@@ -10,6 +10,7 @@
 	export let header: TableHeader;
 	export let toggleColumn: (_col: TableHeaderCell) => void;
 	export let resetColumns: () => void;
+	export let moveColumnDown: (_col: TableHeaderCell) => void;
 	export let searchTerm: string = '';
 	let originalColumnIdxs: number[] = [];
 	let columnsChanged: boolean = false;
@@ -36,9 +37,14 @@
 		return !numArraysEqual(originalColumnIdxs, visibleColumnIdxs);
 	};
 
+	const moveColumnUp = (_col: TableHeaderCell) => {
+		console.log('moveColumnUp()', _col);
+	};
+
 	$: originalColumnIdxs = extractOriginalColumnIdxs(header);
 	$: columnsChanged = getColumnsChanged(header);
 	$: controlClassList = generateClassList(config);
+	$: columnOrder = header.columnOrder;
 </script>
 
 <div class={controlClassList}>
@@ -50,11 +56,15 @@
 		<RnDropdownMenu {config}>
 			<h1 class="header">Table Columns</h1>
 			<div class="columns">
-				{#each header.columnOrder as colIdx}
-					<a class="column" href="#!" on:click={() => toggleColumn(header.columns[colIdx])}>
-						<input type="checkbox" checked={header.columns[colIdx].visible} />
-						{header.columns[colIdx].content}
-					</a>
+				{#each columnOrder as colIdx}
+					<div class="colum-info">
+						<a class="column" href="#!" on:click={() => toggleColumn(header.columns[colIdx])}>
+							<input type="checkbox" checked={header.columns[colIdx].visible} />
+							{header.columns[colIdx].content}
+						</a>
+						<a class="move" href="#!" class:disabled={header.columns[colIdx].firstColumn} on:click={() => moveColumnUp(header.columns[colIdx])}>↑</a>
+						<a class="move" href="#!" class:disabled={header.columns[colIdx].lastColumn} on:click={() => moveColumnDown(header.columns[colIdx])}>↓</a>
+					</div>
 				{/each}
 			</div>
 			<div>
@@ -97,5 +107,34 @@
 
 	.header {
 		text-align: center;
+	}
+
+	.colum-info {
+		display: flex;
+	}
+	.colum-info a:not(.move) {
+		flex: auto;
+	}
+	.colum-info a.move {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	.colum-info .move {
+		width: 1rem;
+		border: 1px solid;
+		text-align: center;
+		padding: 0;
+		margin-left: 0.1rem;
+		border-radius: 0.2rem;
+		background-color: #4040404b;
+		cursor: pointer;
+		border-color: rgba(0, 0, 0, 0.123);
+	}
+	.colum-info .move:hover {
+		background-color: #4040407c;
+	}
+	.colum-info .move.disabled {
+		display: none;
 	}
 </style>

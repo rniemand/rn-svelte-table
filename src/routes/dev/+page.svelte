@@ -27,9 +27,9 @@
 		});
 	}
 
-	const dataStore = new TableDataStore().set(dataBuilder);
+	const dataStore = new TableDataStore(header).setTableData(dataBuilder);
 </script>
 
 <h2 class="text-center mb-3">Development</h2>
 
-<RnSvelteTable {config} {header} {dataStore} />
+<RnSvelteTable {config} {dataStore} />

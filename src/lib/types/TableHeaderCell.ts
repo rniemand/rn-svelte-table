@@ -7,4 +7,6 @@ export type TableHeaderCell = {
 	class?: string;
 	noBreak?: boolean; // TODO: [DOCUMENT] document this
 	columnOrder?: number; // TODO: [DOCUMENT] document this
+	lastColumn?: boolean; // TODO: [DOCUMENT] document this
+	firstColumn?: boolean; // TODO: [DOCUMENT] document this
 };
