@@ -20,10 +20,10 @@
 	<tbody>
 		{#each rows as row}
 			<tr class={row.class}>
-				{#each row.columns as col}
-					{#if isVisible(col)}
-						<td class={col.class}>
-							{col.content}
+				{#each header.columnOrder as colIdx}
+					{#if isVisible(row.columns[colIdx])}
+						<td class={row.columns[colIdx].class}>
+							{row.columns[colIdx].content}
 						</td>
 					{/if}
 				{/each}

@@ -4,6 +4,7 @@ export class TableHeaderCellBuilder {
 	// TODO: [DOCUMENTATION] document this
 	private _cell: TableHeaderCell = {
 		columnIndex: 0,
+		columnOrder: -1,
 		visible: true, // TODO: [DOCUMENT] document this
 		defaultVisible: false, // TODO: [DOCUMENT] document this
 		content: undefined,
@@ -13,6 +14,7 @@ export class TableHeaderCellBuilder {
 
 	constructor(columnIndex: number) {
 		this._cell.columnIndex = columnIndex;
+		this._cell.columnOrder = columnIndex;
 	}
 
 	withContent = (content: any) => {
@@ -58,6 +60,12 @@ export class TableHeaderCellBuilder {
 		// TODO: [DOCUMENT] document this
 		this._cell.visible = visible;
 		this._cell.defaultVisible = visible;
+		return this;
+	};
+
+	columnOrder = (order: number) => {
+		// TODO: [DOCUMENT] document this
+		this._cell.columnOrder = order;
 		return this;
 	};
 

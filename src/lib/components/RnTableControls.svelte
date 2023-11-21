@@ -50,10 +50,10 @@
 		<RnDropdownMenu {config}>
 			<h1 class="header">Table Columns</h1>
 			<div class="columns">
-				{#each header.columns as col}
-					<a class="column" href="#!" on:click={() => toggleColumn(col)}>
-						<input type="checkbox" checked={col.visible} />
-						{col.content}
+				{#each header.columnOrder as colIdx}
+					<a class="column" href="#!" on:click={() => toggleColumn(header.columns[colIdx])}>
+						<input type="checkbox" checked={header.columns[colIdx].visible} />
+						{header.columns[colIdx].content}
 					</a>
 				{/each}
 			</div>

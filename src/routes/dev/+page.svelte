@@ -12,6 +12,7 @@
 		header.addColumn((col) =>
 			col
 				.withContent(`Column ${key.toUpperCase()}`)
+				.columnOrder(Math.ceil(Math.random() * 20))
 				.withNoBreak()
 				.visibleAndDefault(Math.random() * 10 > 5)
 		);

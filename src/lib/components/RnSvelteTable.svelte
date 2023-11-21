@@ -1,11 +1,12 @@
 <script lang="ts">
 	import type { TableConfigBuilder, TableHeaderBuilder } from '$lib/builders/_builders.js';
-	import type { TableConfig, TableDataStore, TableHeader, TableHeaderCell, TableRow } from '$lib/types/_types.js';
+	import type { TableConfig, TableHeader, TableHeaderCell } from '$lib/types/_types.js';
 	import { compileTableConfig, compileTableHeader, generateTableClass } from '$lib/utils/_utils.js';
 	import { onMount } from 'svelte';
 	import RnTableBody from './RnTableBody.svelte';
 	import RnTableHeader from './RnTableHeader.svelte';
 	import RnTableControls from './RnTableControls.svelte';
+	import type { TableDataStore, TableRow } from '$lib/modals/_modals';
 
 	export let config: TableConfig | TableConfigBuilder;
 	export let header: TableHeader | TableHeaderBuilder;

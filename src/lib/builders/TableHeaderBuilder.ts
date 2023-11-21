@@ -1,10 +1,11 @@
 import type { TableHeader } from '$lib/types/_types.js';
+import { HeaderUtils } from '$lib/utils/HeaderUtils.js';
 import { TableHeaderCellBuilder } from './_builders.js';
 
 export class TableHeaderBuilder {
-	// TODO: [DOCUMENTATION] document this
 	private _header: TableHeader = {
-		columns: []
+		columns: [], // TODO: [DOCUMENT] document this
+		columnOrder: [] // TODO: [DOCUMENT] document this
 	};
 
 	constructor() {
@@ -18,5 +19,8 @@ export class TableHeaderBuilder {
 		return this;
 	};
 
-	build = () => this._header;
+	build = () => {
+		HeaderUtils.setColumnOrder(this._header);
+		return this._header;
+	};
 }

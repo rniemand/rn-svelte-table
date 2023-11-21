@@ -5,10 +5,10 @@
 
 <thead>
 	<tr>
-		{#each header.columns as column}
-			{#if column.visible}
-				<th class={column.class || ''}>
-					{#if column.noBreak}<nobr>{column.content}</nobr>{:else}{column.content}{/if}
+		{#each header.columnOrder as colIdx}
+			{#if header.columns[colIdx].visible}
+				<th class={header.columns[colIdx].class || ''}>
+					{#if header.columns[colIdx].noBreak}<nobr>{header.columns[colIdx].content}</nobr>{:else}{header.columns[colIdx].content}{/if}
 				</th>
 			{/if}
 		{/each}
